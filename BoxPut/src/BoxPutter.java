@@ -45,7 +45,7 @@ public class BoxPutter{
         }
         for (Item[] items : boxList) {
             for (int i = 0; i < items.length; i++) {
-                items[i] = Item.DIAMOND;
+                items[i] = Item.values()[0];
             }
         }
         
@@ -69,15 +69,16 @@ public class BoxPutter{
                     boxList.set(toBeSize, switchBox);
                 }
             }
+            System.out.println(itemListToString(boxList));
         }
 
-        System.out.println(itemListToString(boxList));
+        
     }
 
     public String itemListToString(List<Item[]> itemList){
         String returnString = "";
         for (Item[] items : itemList) {
-            returnString += "[";
+            returnString += boxVolume(items) + " [";
             for (int i = 0; i < items.length; i++) {
                 returnString += items[i].toString() + ",";
             }
